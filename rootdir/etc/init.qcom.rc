@@ -506,6 +506,13 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
+service laserinit /system/bin/laser_init
+    class late_start
+    user root
+    group root
+    oneshot
+    writepid /dev/cpuset/system-background/tasks
+
 service qseecomd /system/bin/qseecomd
     class core
     user root
@@ -546,6 +553,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-recv-client stream 0660 system system
     socket thermal-recv-passive-client stream 0666 system system
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /system/bin/time_daemon
     class late_start
@@ -630,6 +638,7 @@ service energy-awareness /system/bin/energy-awareness
     user root
     group system
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
