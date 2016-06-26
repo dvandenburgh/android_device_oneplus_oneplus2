@@ -21,6 +21,57 @@ on charger
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    # Restore CPU 4 max freq from msm_performance
+    write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:4294967295 6:4294967295 7:4294967295"
+
+    # Input boost configuration
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1344000"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+
+    # Configure core_ctl module parameters
+    write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 78
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 25
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms  100
+    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+
+    # enable H-Cube tunings for big cores
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_on 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_down_scale_on 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_thres_on 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_ro_use_gourd 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_correl_lvs "0 0 768000 1248000"
+    write /sys/devices/system/cpu/cpu4/core_ctl/hc_correl_use_pcost 1
+
+    # Setting big.LITTLE scheduler parameters
+    write /proc/sys/kernel/sched_migration_fixup 1
+    write /proc/sys/kernel/sched_small_task 30
+    write /proc/sys/kernel/sched_mostly_idle_load 20
+    write /proc/sys/kernel/sched_mostly_idle_nr_run 3
+    write /proc/sys/kernel/sched_upmigrate 99
+    write /proc/sys/kernel/sched_downmigrate 85
+    write /proc/sys/kernel/sched_freq_inc_notify 400000
+    write /proc/sys/kernel/sched_freq_dec_notify 400000
+    write /proc/sys/kernel/sched_boost 0
+
+    # Enable rps static configuration
+    write /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus 8
+    write /sys/class/devfreq/qcom,cpubw.33/governor "bw_hwmon"
+    write /sys/class/devfreq/qcom,mincpubw.34/governor "cpufreq"
+
+    # Set Memory parameters
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+    write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
+
+    # Set perfd properties
+    rm /data/system/perfd/default_values
+    setprop ro.min_freq_0 384000
+    setprop ro.min_freq_4 384000
+    start perfd
+
 service charger /charger
     class charger
     group log
