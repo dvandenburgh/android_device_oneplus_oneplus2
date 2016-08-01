@@ -403,6 +403,4 @@
     <add-resource type="bool" name="config_showNavigationBar"></add-resource>
     <bool name="config_showNavigationBar">true</bool>
 
-    <!-- Enable blur support -->
-    <bool name="config_ui_blur_enabled">true</bool>
 </resources>
