@@ -21,7 +21,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus2 device
 $(call inherit-product, device/oneplus/oneplus2/device.mk)
 
-PRODUCT_NAME := cm_oneplus2
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+
+PRODUCT_NAME := aosp_oneplus2
 PRODUCT_DEVICE := oneplus2
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_MODEL := oneplus2

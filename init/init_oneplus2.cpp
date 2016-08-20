@@ -39,7 +39,7 @@ void init_variant_properties() {
     char rf_version[PROP_VALUE_MAX];
     int rc;
 
-    rc = property_get("ro.cm.device", device);
+    rc = property_get("ro.aosp.device", device);
     if (!rc || strncmp(device, "oneplus2", 8))
         return;
 
