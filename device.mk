@@ -239,6 +239,7 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
 
