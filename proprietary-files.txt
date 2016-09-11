@@ -42,7 +42,7 @@ vendor/lib64/libbtnv.so
 # Camera
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-lib/hw/camera.vendor.msm8994.so
+lib/hw/camera.msm8994.so:lib/hw/camera.vendor.msm8994.so
 lib/libFNVfbEngineLib.so
 lib/libmm-qcamera.so
 lib/libmmcamera_interface.so
@@ -468,11 +468,8 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk|35b7c2f41662465d056703c257ec5cc1fef75b4f
--app/fastdormancy/fastdormancy.apk|80f660bc74b3d7fc99987422f5ef624e1e6b4224
 -app/QtiTelephonyService/QtiTelephonyService.apk|4610d741cedd4e784011915b16f3f4879cd2e19b
 -app/shutdownlistener/shutdownlistener.apk|e35de2893b60e52cc9f2cb2c6211ccf7db92ed6f
-bin/ipacm-diag
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -483,14 +480,12 @@ etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
-etc/permissions/telephonyservice.xml
--framework/qcnvitems.jar|56a2fb4f80583c7940b9513265cd97e9313dd338
--framework/qcrilhook.jar|52a0e673bb287e7b29c660bebb6c1c2dbb985213
-framework/qti-telephony-common.jar|eabfa165b2c4d1d6c7baae424bf13a0e8575e8f6
+-framework/qcnvitems.jar|9fdaf0bbb5582c64f39e36e96fa5566876744237
+-framework/qcrilhook.jar|10de4ed30abbd5a03d92bfa3eafe6527f409a167
+framework/qti-telephony-common.jar|2daebd9343e5c4c7fabe0d8e76c5df5e89bd9d96
 framework/QtiTelephonyServicelibrary.jar|27c83fe7005affb6937aad19e4c061ba047c43e3
 lib64/libparam.so
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|42de8ddd1ab482b1ddd0bae5ae16d905b4773211
-vendor/bin/qti
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|8f7d06b5c0b7b1ce2e0ae6d39c99ff3b04a4d1c2
 -vendor/lib/libmdmdetect.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
