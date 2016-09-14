@@ -470,6 +470,7 @@ vendor/lib64/libsmemlog.so
 # Radio
 -app/QtiTelephonyService/QtiTelephonyService.apk|4610d741cedd4e784011915b16f3f4879cd2e19b
 -app/shutdownlistener/shutdownlistener.apk|e35de2893b60e52cc9f2cb2c6211ccf7db92ed6f
+bin/ipacm-diag
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -562,8 +563,3 @@ vendor/lib64/libTimeService.so
 # TP Firmware
 etc/firmware/tp/14049/14049_FW_S1302.img
 etc/firmware/tp/14049/14049_FW_S3320_jdi.img
-
-# Wifi
-bin/cnss-daemon
-bin/cnss_diag
--lib64/libwpa_qmi_eap_proxy.so
