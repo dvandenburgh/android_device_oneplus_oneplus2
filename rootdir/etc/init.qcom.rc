@@ -497,7 +497,6 @@ on post-fs-data
 on property:sys.boot_completed=1
     #allow CPUs to go in deeper idle state than C0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    start zram-init
     start perfd
     write /dev/kmsg "Boot completed "
 
@@ -545,12 +544,6 @@ on property:init.svc.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop per_proxy
-
-service zram-init /system/bin/sh /system/etc/init.zram.sh
-    class late_start
-    user root
-    disabled
-    oneshot
 
 service fingerprintd /system/bin/fingerprintd
     class late_start
