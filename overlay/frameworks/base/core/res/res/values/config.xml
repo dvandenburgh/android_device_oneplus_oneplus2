@@ -386,8 +386,8 @@
          so that applications can still use their own mechanisms. -->
     <bool name="config_enableAutoPowerModes">true</bool>
 
-
     <!-- Migrate threads from A53 to A57 on app launch -->
+    <add-resource type="integer" name="launchboost_schedboost_param"></add-resource>
     <integer name="launchboost_schedboost_param">0x1E01</integer>
 
     <!-- Enable overlay for all location components. -->
