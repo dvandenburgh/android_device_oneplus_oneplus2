@@ -13,6 +13,12 @@ user: AID_BLUETOOTH
 group: AID_BLUETOOTH
 caps: 0
 
+[system/vendor/bin/wcnss_filter]
+mode: 0755
+user: AID_BLUETOOTH
+group: AID_BLUETOOTH
+caps: 0
+
 [system/vendor/bin/cnss-daemon]
 mode: 0755
 user: AID_SYSTEM

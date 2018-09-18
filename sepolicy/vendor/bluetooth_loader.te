@@ -1,4 +1,4 @@
-# Run init.qcom.bt.sh
+# Run init.qcom.bt.sh and init.program_bdaddr.sh
 allow bluetooth_loader qti_init_shell_exec:file { entrypoint };
 allow bluetooth_loader bluetooth_loader_exec:file { getattr open execute_no_trans };
 allow bluetooth_loader self:socket { create ioctl };
